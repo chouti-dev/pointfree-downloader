@@ -32,7 +32,7 @@ class Strategy:
 class PointFreeStrategy(Strategy):
     def __init__(self):
         self.BASE_URL = 'https://www.pointfree.co/'
-        self.VIDEOS_DIR = '~/Movies/PointFree'
+        self.VIDEOS_DIR = "/Volumes/t7-touch/PointFree"
         self.GDRIVE_PATH = 'Screencasts/PointFree'
         self.cookieFileName = 'cookies-pointfree.txt'
         self.loadCookies()
@@ -61,7 +61,7 @@ class PointFreeStrategy(Strategy):
 
     # this is an overridable method
     def downloadCommand(self, url, outputFilePath):
-        command = 'youtube-dl -c --no-check-certificate --add-header "Referer:https://www.pointfree.co/"  --output ' + outputFilePath + ' ' + url
+        command = 'youtube-dl -c --no-check-certificate --add-header "Referer:https://www.pointfree.co/" -f "best[height<=540]" --output ' + outputFilePath + ' ' + url
         return command
 
 
